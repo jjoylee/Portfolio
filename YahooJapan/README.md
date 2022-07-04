@@ -74,6 +74,30 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 &nbsp;&nbsp;&nbsp;&nbsp;access token을 사용해 리소스 요청(계정 정보) 
 
+``` C#
+
+  // REQUEST
+  // nonce 생성
+  GenerateCorrelationId(properties);
+  // state 생성
+  var state = Options.StateDataFormat.Protect(properties);
+
+  
+  // RESPONSE
+  // state 값 쿼리스트링에서 가져오기
+  var state = GetValue(query, "state");
+  properties = Options.StateDataFormat.Unprotect(state);
+  if (properties == null)
+  {
+      return null;
+  }
+  // 검증
+  if (!ValidateCorrelationId(properties, _logger))
+  {
+      return new AuthenticationTicket(null, properties);
+  }
+```
+
 <br>
 
 5. 얻은 정보를 DB에 넣어 회원가입 또는 로그인
