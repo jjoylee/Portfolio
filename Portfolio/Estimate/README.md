@@ -2,6 +2,7 @@
 
 #### Skills : C#, ASP.NET, jQuery, AngularJS
 
+<br>
 
 ## 📌 기능 구현
 
@@ -57,6 +58,8 @@ JSON.stringify({ "formData": $scope.formData })
 ```
 
 #### 6. form에 입력한 값을 수정하거나 조회할 때도 json으로 작업. AngularJS로 데이터 바인딩.
+
+<br>
 
 ## 📌 Reference
 
