@@ -15,7 +15,7 @@
 
 #### 3. 선택한 상품 카테고리 값에 따라 form을 조회해 화면에 표시 (INSERT, UPDATE)
 
-1. 상품 카테고리 선택
+3-1. 상품 카테고리 선택
 
 * AngularJS ng-include로 select box 값이 변할 떄마다 parameter 값 다르게 해서 REQUEST 전송 
 
@@ -31,7 +31,7 @@ $scope.GetWriteTemplateUrl = function () {
 </div>
 ```
 
-2. 상품 카테고리 & form 매핑 테이블에서 form id 조회 
+3-2. 상품 카테고리 & form 매핑 테이블에서 form id 조회 
 
 ```C#
 public ContentResult GetEstimateWriteForm(string tabType, string topList)
@@ -41,7 +41,7 @@ public ContentResult GetEstimateWriteForm(string tabType, string topList)
 }
 ```
 
-3. form table해서 html(A)을 가져와 load.
+3-3. form table해서 html(A)을 가져와 load.
 
 <img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/Estimate/dynamicform.gif" width="700" height="400">
 
