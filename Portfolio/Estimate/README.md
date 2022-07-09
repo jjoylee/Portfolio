@@ -1,8 +1,8 @@
 ## Select 한 값(상품 카테고리)에 따라 다른 Form 표시 & Form에 입력한 값 CRUD 기능 구현
 
-### Skills : C#, jQuery, AngularJS
+#### Skills : C#, ASP.NET, jQuery, AngularJS
 
-### 기능 구현
+## 기능 구현
 
 #### 1. form html을 넣을 테이블(form 테이블이라 하자) 생성 후 데이터 INSERT   
 
@@ -26,7 +26,7 @@ $scope.GetWriteTemplateUrl = function () {
 ```
 
 ``` html
-<div class="option_customer boardForm" id="estimateContents" >
+<div>
    <ng-include src="GetWriteTemplateUrl()"></ng-include>
 </div>
 ```
@@ -43,14 +43,20 @@ public ContentResult GetEstimateWriteForm(string tabType, string topList)
 
 3. form table해서 html(A)을 가져와 load.
 
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/Estimate/dynamicform.gif" width="700" height="400">
+
 #### 4. form에 작성한 값들을 보여줄 때는 보여주기 위한 html(B)를 load 한다.
 
-#### 5. form에 입력한 값들은 json으로 전달해 db 컬럼에 INSERT
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/Estimate/view.png" width="400" height="300">
+
+#### 5. form에 입력한 값들은 json으로 전달해 db에 INSERT
 
 ```javascript
 JSON.stringify({ "formData": $scope.formData })
 ```
 
 #### 6. form에 입력한 값을 수정하거나 조회할 때도 json으로 작업. AngularJS로 데이터 바인딩.
+
+## Reference
 
 https://www.adprint.jp/Customer/Estimate
