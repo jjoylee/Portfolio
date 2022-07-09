@@ -47,9 +47,13 @@ public ContentResult GetEstimateWriteForm(string tabType, string topList)
 
 <img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/Estimate/dynamicform.gif" width="700" height="400">
 
+<br>
+
 #### 4. form에 작성한 값들을 보여줄 때는 보여주기 위한 html(B)를 load 한다.
 
 <img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/Estimate/view.png" width="400" height="300">
+
+<br>
 
 #### 5. form에 입력한 값들은 json으로 전달해 db에 INSERT
 
