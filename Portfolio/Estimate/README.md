@@ -1,10 +1,10 @@
-## 📌 Select 한 값(상품 카테고리)에 따라 다른 Form 표시 & Form에 입력한 값 CRUD 기능 구현
+### 📌 Select 한 값(상품 카테고리)에 따라 다른 Form 표시 & Form에 입력한 값 CRUD 기능 구현
 
 #### Skills : C#, ASP.NET, jQuery, AngularJS
 
 <br>
 
-## 📌 기능 구현
+### 📌 기능 구현
 
 #### 1. form html을 넣을 테이블(form 테이블이라 하자) 생성 후 데이터 INSERT   
 
@@ -61,6 +61,6 @@ JSON.stringify({ "formData": $scope.formData })
 
 <br>
 
-## 📌 Reference
+### 📌 Reference
 
 https://www.adprint.jp/Customer/Estimate
