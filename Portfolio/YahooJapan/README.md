@@ -104,13 +104,9 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 <br>
 
-### 📌 Code
-
-https://github.com/jjoylee/portfolio/tree/master/Portfolio/YahooJapan
-
 ### 📌 Result
 
-[]
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/YahooJapan/yahoologin.gif" width="700" height="400">
 
 https://www.adprint.jp/Members/LoginView
 
