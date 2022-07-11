@@ -106,6 +106,8 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 ### 📌 Code
 
+https://github.com/jjoylee/portfolio/tree/master/Portfolio/YahooJapan
+
 ### 📌 Result
 
 []
