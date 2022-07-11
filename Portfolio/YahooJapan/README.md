@@ -104,6 +104,12 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 <br>
 
+### 📌 Result
+
+
+
+https://www.adprint.jp/Members/LoginView
+
 ### 📌 Reference
 
 https://jjoystory.tistory.com/45
