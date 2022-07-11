@@ -104,9 +104,11 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 <br>
 
+### 📌 Code
+
 ### 📌 Result
 
-
+[]
 
 https://www.adprint.jp/Members/LoginView
 
