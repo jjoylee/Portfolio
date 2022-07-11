@@ -110,6 +110,8 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 https://www.adprint.jp/Members/LoginView
 
+<br>
+
 ### 📌 Reference
 
 https://jjoystory.tistory.com/45
