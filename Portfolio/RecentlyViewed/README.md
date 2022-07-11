@@ -9,6 +9,8 @@ DB, Session, Cookie 중 Cookie에 데이터를 저장하는 방법으로 개발.
 
 Newtonsoft 사용해서 JSON ↔ MODEL 변환
 
+<br>
+
 ## 📌 구현
 
 1. Client가 상품 페이지 요청.
@@ -21,9 +23,20 @@ Newtonsoft 사용해서 JSON ↔ MODEL 변환
 
 6. 쿠키를 Client에 전달한다.
 
-## 📌 Problem Solving
+<br>
 
-https://jjoystory.tistory.com/3?category=998004
+## 📌 Result
+
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/recentlyViewed.png" width="700" height="400">
+
+https://www.adprint.jp/OrderMall/Order/TotalOrder.aspx?totalCode=PNPDPF
+
+<br>
+
+## 📌 Reference & Problem Solving
+
+https://jjoystory.tistory.com/2
+https://jjoystory.tistory.com/3
  
-## 📌 결과
+
 
