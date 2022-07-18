@@ -1,7 +1,8 @@
+<br>
+
 ## 📌 나라마다 다른 주소 입력 양식 제공 & 주소 저장하기
 
-한국 주소 : 도로명 주소 + 세부 주소  
-미국 주소 : 주 + 도시 + 세부 주소  
+ex) 한국 주소 : 도로명 주소 + 세부 주소, 미국 주소 : 주 + 도시 + 세부 주소  
 기존 한국에 맞춰서 개발된 주소 체계 변경 및 이에 따라 관리자 페이지 사용자 주소 표시 페이지 수정.
 
 ## 📌 해결해야 할 문제 
@@ -16,7 +17,7 @@
 
 ``` javascript
  templateUrl: ['$Nation', function ($Nation) {
-    var nation = $Nation.Nation; // 국가정보
+    var nation = $Nation.Nation; // 국가(KR, US, JP ...)
     return "common address form url" + '/Address.tmpl.' + nation + + '.html';
  }]
 ```
