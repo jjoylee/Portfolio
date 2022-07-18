@@ -74,8 +74,8 @@ private static object GetJsonValue(PropertyInfo prop, object value)
 
 > <br>
 > KEY_CHAR : json으로 표현한 주소 객체의 키 이름임을 알려주는 문자(키 구분 문자). 후에 replace를 위해 사용. 편의상 여기서는 '#'이라고 해보자.<br>
-> ADDRESS_FORMAT : json 주소를 어떻게 표시할지 알려주는 포맷 ( "#세부주소, #도시명, #주이름" )<br>
-> ADDRESS_KEY_ARRAY : json 주소 객체에서 사용하는 key array ( ['세부주소', '도시명', '주이름']<br>
+> ADDRESS_FORMAT : json 주소를 어떻게 표시할지 알려주는 포맷 ( "#세부주소2 #세부주소1 #도시명, #주이름" )<br>
+> ADDRESS_KEY_ARRAY : json 주소 객체에서 사용하는 key array ( ['세부주소1', '세부주소2', '도시명', '주이름']<br>
 > <br>
 > 1. ADDRESS_KEY_ARRAY를 이용해서 객체 초기화<br>
 > 2. ADDRESS_FORMAT에서 'KEY_CHAR + KEY'의 조합으로 KEY 부분을 찾음<br>
@@ -87,7 +87,7 @@ private static object GetJsonValue(PropertyInfo prop, object value)
 
 ``` javascript
     // 변환 시작
-    // jsonAddressObj(json 주소 객체) : { "주이름" : "CA", "도시명" : "LA", "세부주소" : "new york apartment" } 
+    // jsonAddressObj(json 주소 객체) : { "주이름" : "CA", "도시명" : "LA", "세부주소1" : "new york apartment", 세부주소2 : "" } 
     function jsonAddressToStrAddress(jsonAddressObj) {
         var strAddressFormat = ADDRESS_FORMAT;
         var initiatedJsonAddressObj = getInitiatedJsonAddressObj(jsonAddressObj)
@@ -170,3 +170,7 @@ private static object GetJsonValue(PropertyInfo prop, object value)
     }
 }
 ```
+
+## 📌 결과 
+
+
