@@ -13,7 +13,7 @@ ex) 한국 주소 : 도로명 주소 + 세부 주소, 미국 주소 : 주 + 도�
 
 ## 📌 해결 
 
-1. AngularJs templateUrl을 사용해 나라에 따라 다른 주소 입력 폼 html을 load 할 수 있다.
+1. AngularJs templateUrl을 사용해 나라에 따라 다른 주소 입력 폼 html을 load.
 
 ``` javascript
  templateUrl: ['$Nation', function ($Nation) {
@@ -22,7 +22,7 @@ ex) 한국 주소 : 도로명 주소 + 세부 주소, 미국 주소 : 주 + 도�
  }]
 ```
 
-2. 주소를 json string 으로 변환 후 db에 저장. 어떤 나라의 주소라도 하나의 컬럼에 저장할 수 있다.
+2. 주소를 json string 으로 변환 후 db에 저장해 어떤 나라의 주소라도 하나의 컬럼에 저장할 수 있다.
 
 ```C#
 
@@ -61,7 +61,7 @@ private static object GetJsonValue(PropertyInfo prop, object value)
 
 ```
 
-3. 주소 포맷을 db에 저장 
+3. 주소 포맷을 db에 저장한 뒤 포맷에 맞춰 저장한 주소를 보여준다.
 
 ``` javascript
     module.service("$tqAddrService", ['$Config', function ($TCon) {
