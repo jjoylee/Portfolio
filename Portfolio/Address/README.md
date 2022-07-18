@@ -61,7 +61,7 @@ private static object GetJsonValue(PropertyInfo prop, object value)
 
 ```
 
-3. 주소 포맷을 db에 저장. 화면에 표시할 떄 convertor 포맷에 맞춰 주소를 보여준다.
+3. 주소 포맷을 db에 저장. 화면에 주소를 표시할 떄 convertor를 사용해 db에 저장한 주소 데이터(json address)를 주소 포맷에 맞춰 변환해 주소 .
 
 ``` javascript
     module.service("$tqAddrService", ['$Config', function ($TCon) {
