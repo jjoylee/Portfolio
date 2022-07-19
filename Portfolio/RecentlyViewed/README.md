@@ -23,6 +23,12 @@ Newtonsoft 사용해서 JSON ↔ MODEL 변환
 
 <br>
 
+## 📌 주요 코드
+
+https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/RecentlyViewedService.cs
+
+<br>
+
 ## 📌 Result
 
 <img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/recentlyViewed.png" width="700" height="400">
