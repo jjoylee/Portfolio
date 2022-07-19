@@ -3,8 +3,6 @@
 
 ## 📌 최근 본 상품 최대 5개 보여주기
 
-Skills : C#, ASP.NET, 
-
 DB, Session, Cookie 중 Cookie에 데이터를 저장하는 방법으로 개발.
 
 Newtonsoft 사용해서 JSON ↔ MODEL 변환
