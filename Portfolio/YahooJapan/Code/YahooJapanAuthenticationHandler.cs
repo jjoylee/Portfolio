@@ -1,5 +1,5 @@
-using JangBoGo.Owin.Security.YahooJapan.Model;
-using JangBoGo.Owin.Security.YahooJapan.Provider;
+using Lib.Owin.Security.YahooJapan.Model;
+using Lib.Owin.Security.YahooJapan.Provider;
 using Microsoft.Owin;
 using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Logging;
@@ -13,7 +13,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JangBoGo.Owin.Security.YahooJapan
+namespace Lib.Owin.Security.YahooJapan
 {
     public class YahooJapanAuthenticationHandler : AuthenticationHandler<YahooJapanAuthenticationOptions>
     {

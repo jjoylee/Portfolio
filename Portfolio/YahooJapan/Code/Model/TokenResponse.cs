@@ -1,6 +1,6 @@
 using Newtonsoft.Json.Linq;
 
-namespace JangBoGo.Owin.Security.YahooJapan.Model
+namespace Lib.Owin.Security.YahooJapan.Model
 {
     public class TokenResponse
     {
