@@ -12,4 +12,4 @@
 
 ## 📌 결과
 
-<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/TODO_Cart/Cart.png" width="700" height="400">
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/TODO_Cart/Image/Cart.png" width="700" height="400">
