@@ -25,13 +25,13 @@ Newtonsoft 사용해서 JSON ↔ MODEL 변환
 
 ## 📌 주요 코드
 
-https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/RecentlyViewedService.cs
+https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/Code/RecentlyViewedService.cs
 
 <br>
 
 ## 📌 Result
 
-<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/recentlyViewed.png" width="700" height="400">
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/Image/recentlyViewed.png" width="700" height="400">
 
 https://www.adprint.jp/OrderMall/Order/TotalOrder.aspx?totalCode=PNPDPF
 
