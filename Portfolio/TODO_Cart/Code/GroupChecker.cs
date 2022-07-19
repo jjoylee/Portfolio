@@ -1,3 +1,4 @@
+
 public class GroupChecker : IGroupChecker
 {
     [Autowire]
@@ -8,7 +9,7 @@ public class GroupChecker : IGroupChecker
         return groups.Any(a => IsSameGroup(a.Key, item));
     }
 
-    public virtual bool IsSameGroup(string key, CartItemUserView item)
+    public bool IsSameGroup(string key, CartItemUserView item)
     {
         return key == GroupKeyGetter.Get(item);
     }
