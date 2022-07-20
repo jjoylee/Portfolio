@@ -9,7 +9,7 @@ public class CartGroupService : ICartGroupService
         return GroupMaker.Make(list);
     }
 
-    // 모든 상품 다 같이 주문할 수 있으면 true > 즉 group이 하나.
+    // 카트에 담긴 모든 상품을 한번에 주문할 수 있으면 true > 즉 group이 하나.
     public bool AllSameGroup(IList<CartItemUserView> list)
     {
         return Grouping(list).Count() == 1;
