@@ -36,7 +36,9 @@ db에 회원, 비회원을 insert하는 로직도 각 서비스에 따로 존재
 
 비회원가입 로직을 수정하면서 프로세스 단위로 인터페이스를 만들었다.   
 IParameterChecker → IDuplicateChecker → IMemberCreator → IAfterSignUpService    
-기존의 중복된 로직을 지우고, 하나의 서비스에서 (비)회원 가입 처리를 할 수 있도록 수정했다.   
+기존의 중복된 로직을 지우고, 하나의 서비스에서 (비)회원 가입 처리할 수 있도록 수정했다.   
+
+<br>
 
 ``` C#
     
@@ -67,6 +69,8 @@ private MemberItem MemberSignUp(SignUpParam param)
 ```
 
 https://github.com/jjoylee/portfolio/tree/master/Portfolio/LoginProc/Code
+
+<br>
 
 ## 📌 결과
 
