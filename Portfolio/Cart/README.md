@@ -14,7 +14,7 @@
 
 ## 📌 주요 코드
 
-https://github.com/jjoylee/portfolio/tree/master/Portfolio/TODO_Cart/Code
+https://github.com/jjoylee/portfolio/tree/master/Portfolio/Cart/Code
 
 ### 예시
 
@@ -55,6 +55,6 @@ GroupKeyGetter를 사용해 이미 있는(만들어진) 카트 그룹과 카트 
 
 ## 📌 결과
 
-<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/TODO_Cart/Image/Cart.png" width="700" height="400">
+<img src="https://github.com/jjoylee/portfolio/blob/master/Portfolio/Cart/Image/Cart.png" width="700" height="400">
 
 http://www.yoki.jp  
