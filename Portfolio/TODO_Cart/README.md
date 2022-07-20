@@ -45,7 +45,8 @@ https://github.com/jjoylee/portfolio/tree/master/Portfolio/TODO_Cart/Code
 6. 없으면 새로운 카트 그룹 객체를 만들고, 카트 상품을 추가한다.
 
 GroupKeyGetter      
-카트 상품의 카트 그룹 Key(식별자) 값을 반환한다.      
+카트 상품의 카트 그룹 Key(식별자) 값을 반환한다. 
+KEY값 생성 로직 = 같이 주문할 수 있는 상품의 기준(조건)이 된다.
 
 GroupChecker        
 GroupKeyGetter를 사용해 이미 있는(만들어진) 카트 그룹과 카트 상품의 그룹이 같은지 체크헌다.     
