@@ -25,7 +25,7 @@ Newtonsoft 사용해서 JSON ↔ MODEL 변환
 
 ## 📌 주요 코드
 
-https://github.com/jjoylee/portfolio/blob/master/Portfolio/RecentlyViewed/Code/RecentlyViewedService.cs
+[주요 코드 링크](./Code)
 
 <br>
 

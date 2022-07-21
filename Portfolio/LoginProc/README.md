@@ -68,7 +68,7 @@ private MemberItem MemberSignUp(SignUpParam param)
 
 ```
 
-https://github.com/jjoylee/portfolio/tree/master/Portfolio/LoginProc/Code
+[주요 코드 링크](./Code)
 
 <br>
 

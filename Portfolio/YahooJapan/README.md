@@ -104,6 +104,12 @@ AuthenticationTicket ticket = await AuthenticateAsync();
 
 <br>
 
+### 📌 Code
+
+[주요 코드 링크](./Code)
+
+<br>
+
 ### 📌 Result
 
 <img src="./Image/yahoologin.gif" width="700" height="400">
