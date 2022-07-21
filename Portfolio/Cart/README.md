@@ -14,7 +14,7 @@
 
 ## 📌 주요 코드
 
-https://github.com/jjoylee/portfolio/tree/master/Portfolio/Cart/Code
+[주요 코드 링크](./Code)
 
 ### 예시
 
