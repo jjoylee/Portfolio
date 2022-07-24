@@ -62,42 +62,52 @@ ProcType.cs
   }
 ```
 
+<br>
+DepositProcInfoGetter.cs   
 
 ``` C#
-  / ** 
-    총 주문금액, 고객 보유 포인트, 입금액 조회
-    처리 버튼 누르면 입금 처리를 위해 필요한 정보 조회
-  **/
-  public DepositMatchingInfo Get(int id, string orderIds)
-  { 
-      var depositTargetOrderList = GetDepositTargetOrderList(orderIds); // 해당 입금 내역으로 입금처리할 주문들
-      var memberId = GetMemberId(depositTargetOrderList); // 주문의 고객
-      var currentMemberPoint = GetCurrentPointByMemberId(memberId); // 현재 보유 포인트
-      var totalOrderAmount = GetTotalOrderAmount(depositTargetOrderList); // 총 주문금액
-      var depositProcPrice = GetDepositProcPrice(id); // 입금액, id == 입금내역 id
-      return new DepositMatchingInfo  {
-          TotalOrderAmount = totalOrderAmount, CurrentMemberPoint = currentMemberPoint,
-          DepositProcPrice = depositProcPrice, MemberId = memberId
-      };
+  /* 
+    DepositMatchingInfoGetter로 필요한 데이터 조회 (총 주문금액, 고객 보유 포인트, 입금액)
+    DepositProcInfoGetter에서 DepositMatchingInfoGetter로 기반으로 지급 또는 차감할 포인트 계산, 입금 처리 CASE 구분(어떤 procType인지)
+  */
+  public DepositProcInfo Get(int id, string orderIds)
+  {
+      var matchingInfo = DepositMatchingInfoGetter.Get(id, orderIds); // 총 주문금액, 고객이 보유한 포인트, 입금액 가져오기
+      return GetProcInfo(matchingInfo); // CASE분석 후, 지급할 포인트, 차감할 포인트 계산
+  }
+
+  private DepositProcInfo GetProcInfo(DepositMatchingInfo matchingInfo)
+  {
+      var procType = GetProcType(matchingInfo); // CASE 분석
+      var returnPoint = GetReturnPoint(procType, matchingInfo); // 반환할 포인트
+      var deductionPoint = GetDeductionPoint(procType, matchingInfo); // 차감할 포인트
+      return new DepositProcInfo() { DepositMatchingInfo = matchingInfo , ProcType = procType, ReturnPoint = returnPoint, DeductionPoint = deductionPoint};
   }
 ```
 
-``` C#
-    [Transaction]
-    public void ConfirmDeposit(int id, string orderIds, string memo, DepositMatchingInfo submitInfo, string adminId)
-    {
-        DepositConfirmOrders(id, orderIds, submitInfo, adminId);
-        DepositDao.ConfirmDeposit(id, orderIds, memo, adminId);  // 입금내역 상태 변경
-    }
+<br>
+DepositConfirmService.cs    
 
-    private void DepositConfirmOrders(int id, string orderIds, DepositMatchingInfo submitInfo, string adminId)
-    {
-        var currentInfo = DepositProcInfoService.GetDepositProcInfo(id, orderNums);
-        // 기존에 조회했던 데이터 중 바뀐 것이 있는지 체크
-        if (InfoIsChanged(currentInfo, submitInfo)) throw new Exception("주문을 확인해주세요."); 
-        DoDepositConfirmProc(orderIds, adminId); // 주문 입금 상태 변경 (미입금 → 입금완료)
-        DoPointProc(currentInfo, id, orderIds.Split('/')[0]); // 포인트 처리 (지급 or 차감)
-    }
+``` C#
+  /*
+    입금 처리 
+    submitInfo : 적용 버튼 눌렀을 때 조회해 return 받은 DepositMatchingInfo
+  */
+  [Transaction]
+  public void ConfirmDeposit(int id, string orderIds, string memo, DepositMatchingInfo submitInfo, string adminId)
+  {
+      DepositConfirmOrders(id, orderIds, submitInfo, adminId);
+      DepositDao.ConfirmDeposit(id, orderIds, memo, adminId);  // 입금내역 상태 변경
+  }
+
+  private void DepositConfirmOrders(int id, string orderIds, DepositMatchingInfo submitInfo, string adminId)
+  {
+      var currentInfo = DepositProcInfoService.GetDepositProcInfo(id, orderNums);
+      // 기존에 조회했던 데이터 중 바뀐 것이 있는지 체크
+      if (InfoIsChanged(currentInfo, submitInfo)) throw new Exception("주문을 확인해주세요."); 
+      DoDepositConfirmProc(orderIds, adminId); // 주문 입금 상태 변경 (미입금 → 입금완료)
+      DoPointProc(currentInfo, id, orderIds.Split('/')[0]); // 포인트 처리 (지급 or 차감)
+  }
 ```
 
 [주요 코드 링크](./Code)
