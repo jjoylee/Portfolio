@@ -10,7 +10,7 @@ public class DepositService : IDepositService
     [Autowire]
     public IDepositProcInfoService DepositProcInfoService { get; set; }
 
-    // 입금 처리
+    // submitInfo 기준으로 입금 처리
     public void ConfirmDeposit(int id, string orderIds, string memo, DepositMatchingInfo submitInfo, string adminId)
     {
         DepositConfirmService.ConfirmDeposit(id, orderIds, memo, submitInfo, adminId);
@@ -22,7 +22,11 @@ public class DepositService : IDepositService
         DepositSaveService.SaveDeposit(id, orderIds, memo);
     }
 
-    // prev 내용 가져오기
+    /** 
+        관리자가 알 수 있도록 주문금액, 고객 포인트 조회, 입금 처리 가능한지 상태 파악 (적용버튼 클릭)
+        적용 버튼을 누르면 DepositProcInfo 객체를 만들어 return
+        입금 처리할 때(처리완료/포인트처리 버튼 클릭) ConfirmDeposit의 submitInfo로 넘김
+    **/
     public DepositProcInfo GetDepositProcInfo(int id, string orderIds)
     {
         return DepositProcInfoService.GetDepositProcInfo(id, orderIds);
