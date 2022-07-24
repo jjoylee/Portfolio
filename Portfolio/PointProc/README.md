@@ -41,6 +41,16 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총 주문금액
 
 ## 📌 주요 코드 
 
+```C#
+  public enum ProcType
+  {
+      GENERALPROC, // CASE1
+      RETURNPOINTPROC, // CASE2
+      DEDUCTIONPOINTPROC, // CASE3
+      CANNOTPROC // CASE4
+  }
+```
+
 [주요 코드 링크](./Code)
 
 <br>
