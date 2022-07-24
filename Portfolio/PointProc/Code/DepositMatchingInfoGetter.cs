@@ -22,21 +22,12 @@ public class DepositMatchingInfoGetter : IDepositMatchingInfoGetter
         };
     }
 
-    private int GetCurrentPointByMemberId(string memberId)
+    private IList<OrderItem> GetDepositTargetOrderList(string orderIds)
     {
-        return MemberDao.GetCurrentPointByMemberId(memberId);
-    }
-
-    private int GetDepositProcPrice(int id)
-    {
-        var deposit = DepositDao.GetNotConfirmedDepositById(id);
-        if (deposit == null) throw new Exception("주문을 확인해주세요");        
-        return deposit.ProcAmt;
-    }
-
-    private int GetTotalOrderAmount(IList<OrderItem> depositTargetOrderList)
-    {
-        return depositTargetOrderList.Sum(t => t.OrderAmount);
+        var ids = orderIds.Split('/').Select(t => Convert.ToInt32(t)).ToArray();
+        var orderList = OrderDao.FindDepositConfirmTargetByOrderIds(ids);
+        if (orderList.Count() != ids.Count()) throw new Exception("DepositConfirmValidation");
+        return orderList;
     }
 
     private string GetMemberId(IList<OrderItem> orderList)
@@ -46,21 +37,30 @@ public class DepositMatchingInfoGetter : IDepositMatchingInfoGetter
         return memberList[0];
     }
 
+    private IList<string> GetMemberList(IList<OrderItem> orderList)
+    {
+        return orderList.Select(t => t.MemberId).Distinct().ToList();
+    }
+
     private bool MemberIsNotSame(IList<string> memberList)
     {
         return memberList.Count() != 1;
     }
 
-    private IList<string> GetUserList(IList<OrderItem> orderList)
+    private int GetCurrentPointByMemberId(string memberId)
     {
-        return orderList.Select(t => t.MemberId).Distinct().ToList();
+        return MemberDao.GetCurrentPointByMemberId(memberId);
     }
 
-    private IList<OrderItem> GetDepositTargetOrderList(string orderIds)
+    private int GetTotalOrderAmount(IList<OrderItem> depositTargetOrderList)
     {
-        var ids = orderIds.Split('/').Select(t => Convert.ToInt32(t)).ToArray();
-        var orderList = OrderDao.FindDepositConfirmTargetByOrderIds(ids);
-        if (orderList.Count() != ids.Count()) throw new Exception("DepositConfirmValidation");
-        return orderList;
+        return depositTargetOrderList.Sum(t => t.OrderAmount);
+    }
+
+    private int GetDepositProcPrice(int id)
+    {
+        var deposit = DepositDao.GetNotConfirmedDepositById(id);
+        if (deposit == null) throw new Exception("주문을 확인해주세요");        
+        return deposit.ProcAmt;
     }
 }
