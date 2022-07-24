@@ -52,8 +52,20 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총 주문금액
       CANNOTPROC // CASE4
   }
 ```
-``` C#
 
+``` C#
+public DepositMatchingInfo Get(int id, string orderIds)
+{ 
+    var depositTargetOrderList = GetDepositTargetOrderList(orderIds); // 해당 입금 내역으로 입금처리할 주문들
+    var memberId = GetMemberId(depositTargetOrderList); // 주문의 고객
+    var currentMemberPoint = GetCurrentPointByMemberId(memberId); // 현재 보유 포인트
+    var totalOrderAmount = GetTotalOrderAmount(depositTargetOrderList); // 총 주문금액
+    var depositProcPrice = GetDepositProcPrice(id); // 입금액, id == 입금내역 id
+    return new DepositMatchingInfo  {
+        TotalOrderAmount = totalOrderAmount, CurrentMemberPoint = currentMemberPoint,
+        DepositProcPrice = depositProcPrice, MemberId = memberId
+    };
+}
 
 ```
 [주요 코드 링크](./Code)
