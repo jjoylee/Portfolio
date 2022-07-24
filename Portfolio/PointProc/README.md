@@ -49,7 +49,10 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총 주문금액
 
 ## 📌 주요 코드 
 
+ProcType.cs   
+
 ```C#
+  // 입금 처리 CASE 구분
   public enum ProcType
   {
       GENERALPROC, // CASE1
@@ -59,20 +62,24 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총 주문금액
   }
 ```
 
-``` C#
-public DepositMatchingInfo Get(int id, string orderIds)
-{ 
-    var depositTargetOrderList = GetDepositTargetOrderList(orderIds); // 해당 입금 내역으로 입금처리할 주문들
-    var memberId = GetMemberId(depositTargetOrderList); // 주문의 고객
-    var currentMemberPoint = GetCurrentPointByMemberId(memberId); // 현재 보유 포인트
-    var totalOrderAmount = GetTotalOrderAmount(depositTargetOrderList); // 총 주문금액
-    var depositProcPrice = GetDepositProcPrice(id); // 입금액, id == 입금내역 id
-    return new DepositMatchingInfo  {
-        TotalOrderAmount = totalOrderAmount, CurrentMemberPoint = currentMemberPoint,
-        DepositProcPrice = depositProcPrice, MemberId = memberId
-    };
-}
 
+``` C#
+  / ** 
+    총 주문금액, 고객 보유 포인트, 입금액 조회
+    처리 버튼 누르면 입금 처리를 위해 필요한 정보 조회
+  **/
+  public DepositMatchingInfo Get(int id, string orderIds)
+  { 
+      var depositTargetOrderList = GetDepositTargetOrderList(orderIds); // 해당 입금 내역으로 입금처리할 주문들
+      var memberId = GetMemberId(depositTargetOrderList); // 주문의 고객
+      var currentMemberPoint = GetCurrentPointByMemberId(memberId); // 현재 보유 포인트
+      var totalOrderAmount = GetTotalOrderAmount(depositTargetOrderList); // 총 주문금액
+      var depositProcPrice = GetDepositProcPrice(id); // 입금액, id == 입금내역 id
+      return new DepositMatchingInfo  {
+          TotalOrderAmount = totalOrderAmount, CurrentMemberPoint = currentMemberPoint,
+          DepositProcPrice = depositProcPrice, MemberId = memberId
+      };
+  }
 ```
 
 ``` C#
