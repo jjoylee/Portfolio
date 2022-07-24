@@ -35,4 +35,7 @@
 
 ## 📌 결과 
 
-<img src="./Image/layout.png" width="700" height="400">
+<img src="./Image/GENERAL.png" width="700" height="400">
+<img src="./Image/DEDUCTIONPOINTPROC.png" width="700" height="400">
+<img src="./Image/RETURNPOINTPROC.png" width="700" height="400">
+<img src="./Image/CANNOTPROC.png" width="700" height="400">
