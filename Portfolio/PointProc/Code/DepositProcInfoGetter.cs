@@ -7,15 +7,15 @@ public class DepositProcInfoGetter : IDepositProcInfoGetter
 
     public DepositProcInfo Get(int id, string orderIds)
     {
-        var matchingInfo = DepositMatchingInfoGetter.Get(id, orderIds);
-       return GetProcInfo(matchingInfo);
+        var matchingInfo = DepositMatchingInfoGetter.Get(id, orderIds); // 총 주문금액, 고객이 보유한 포인트, 입금액 가져오기
+       return GetProcInfo(matchingInfo); // CASE분석 후, 지급할 포인트, 차감할 포인트 계산
     }
 
     private DepositProcInfo GetProcInfo(DepositMatchingInfo matchingInfo)
     {
-        var procType = GetProcType(matchingInfo);
-        var returnPoint = GetReturnPoint(procType, matchingInfo);
-        var deductionPoint = GetDeductionPoint(procType, matchingInfo);
+        var procType = GetProcType(matchingInfo); // CASE 분석
+        var returnPoint = GetReturnPoint(procType, matchingInfo); // 반환할 포인트
+        var deductionPoint = GetDeductionPoint(procType, matchingInfo); // 차감할 포인트
         return new DepositProcInfo() { DepositMatchingInfo = matchingInfo , ProcType = procType, ReturnPoint = returnPoint, DeductionPoint = deductionPoint};
     }
 

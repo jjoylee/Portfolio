@@ -11,11 +11,11 @@ public class DepositMatchingInfoGetter : IDepositMatchingInfoGetter
 
     public DepositMatchingInfo Get(int id, string orderIds)
     {
-        var depositTargetOrderList = GetDepositTargetOrderList(orderIds);
-        var memberId = GetMemberId(depositTargetOrderList);
-        var currentMemberPoint = GetCurrentPointByMemberId(memberId);
-        var totalOrderAmount = GetTotalOrderAmount(depositTargetOrderList);
-        var depositProcPrice = GetDepositProcPrice(id);
+        var depositTargetOrderList = GetDepositTargetOrderList(orderIds); // 해당 입금 내역으로 입금처리할 주문들
+        var memberId = GetMemberId(depositTargetOrderList); // 주문의 고객
+        var currentMemberPoint = GetCurrentPointByMemberId(memberId); // 현재 보유 포인트
+        var totalOrderAmount = GetTotalOrderAmount(depositTargetOrderList); // 총 주문금액
+        var depositProcPrice = GetDepositProcPrice(id); // 입금액, id == 입금내역 id
         return new DepositMatchingInfo  {
             TotalOrderAmount = totalOrderAmount, CurrentMemberPoint = currentMemberPoint,
             DepositProcPrice = depositProcPrice, MemberId = memberId
@@ -42,6 +42,7 @@ public class DepositMatchingInfoGetter : IDepositMatchingInfoGetter
         return orderList.Select(t => t.MemberId).Distinct().ToList();
     }
 
+    // 입금처리할 주문들의 고객이 모두 동일한지 체크, 모두 동일해야 입금 처리 가능
     private bool MemberIsNotSame(IList<string> memberList)
     {
         return memberList.Count() != 1;
