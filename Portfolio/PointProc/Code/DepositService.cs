@@ -10,7 +10,10 @@ public class DepositService : IDepositService
     [Autowire]
     public IDepositProcInfoService DepositProcInfoService { get; set; }
 
-    // submitInfo 기준으로 입금 처리
+    /* 
+        submitInfo 기준으로 입금 처리
+        입금 처리 시작 포인트
+    */
     public void ConfirmDeposit(int id, string orderIds, string memo, DepositMatchingInfo submitInfo, string adminId)
     {
         DepositConfirmService.ConfirmDeposit(id, orderIds, memo, submitInfo, adminId);
