@@ -49,7 +49,7 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총 주문금액
 
 ## 📌 주요 코드 
 
-[ProcType.cs](./Code/ProcType.cs)   
+[ProcType.cs](./Code/Model/ProcType.cs)   
 
 ```C#
   // 입금 처리 CASE 구분
