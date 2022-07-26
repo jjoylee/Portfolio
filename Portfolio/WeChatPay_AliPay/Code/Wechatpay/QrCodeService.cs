@@ -1,5 +1,6 @@
 namespace Lib.Payment.Wechatpay.Service
 {
+    // ThoughtWorks.QRCode 사용
     // 위챗페이 QrCode 생성
     public class QrCodeService : IQrCodeService
     {
