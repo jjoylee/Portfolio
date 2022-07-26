@@ -40,7 +40,7 @@ IParameterChecker → IDuplicateChecker → IMemberCreator → IAfterSignUpServi
 
 <br>
 
-[MemberSignUpService.cs](./Code/MemberSignUpService.cs)
+[MemberSignUpService.cs](./Code/MemberSignUpService.cs){:target="_blank"}
 
 ``` C#
 
@@ -70,7 +70,7 @@ private MemberItem MemberSignUp(SignUpParam param)
 
 ```
 
-[주요 코드 링크](./Code)
+[주요 코드 링크](./Code){:target="_blank"}
 
 <br>
 
