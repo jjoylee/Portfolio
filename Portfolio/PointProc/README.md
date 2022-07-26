@@ -49,7 +49,7 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총 주문금액
 
 ## 📌 주요 코드 
 
-ProcType.cs   
+[ProcType.cs](./Code/ProcType.cs)   
 
 ```C#
   // 입금 처리 CASE 구분
@@ -63,7 +63,8 @@ ProcType.cs
 ```
 
 <br>
-DepositProcInfoGetter.cs   
+
+[DepositProcInfoGetter.cs](./Code/DepositProcInfoGetter.cs)     
 
 ``` C#
   /* 
@@ -86,7 +87,8 @@ DepositProcInfoGetter.cs
 ```
 
 <br>
-DepositConfirmService.cs    
+
+[DepositConfirmService.cs](./Code/DepositConfirmService.cs)     
 
 ``` C#
   /*
