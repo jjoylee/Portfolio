@@ -1,6 +1,6 @@
 namespace Lib.Payment.Wechatpay.Service
 {
-    // 위챗페이 QrCode 
+    // 위챗페이 QrCode 생성
     public class QrCodeService : IQrCodeService
     {
         public string ToBase64(string codeUrl)
