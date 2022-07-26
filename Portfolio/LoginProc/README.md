@@ -40,8 +40,10 @@ IParameterChecker → IDuplicateChecker → IMemberCreator → IAfterSignUpServi
 
 <br>
 
+[MemberSignUpService.cs](./Code/MemberSignUpService.cs)
+
 ``` C#
-    
+
 // 회원가입, 비회원가입
 public MemberItem SignUp(SignUpParam param)
 {
