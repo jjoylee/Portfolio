@@ -37,18 +37,18 @@
 
 ### Grouping Flow
 
-1. CartGroupService.Grouping 호출
-2. GroupMaker가 빈 카트 그룹 리스트 생성
+1. [CartGroupService](./Code/CartGroupService.cs).Grouping 호출
+2. [GroupMaker](./Code/GroupMaker.cs)가 빈 카트 그룹 리스트 생성
 3. 카트 (상품) 리스트 루프를 돌림
-4. GroupChecker로 해당 카트 상품을 위한 카트 그룹 객체가 이미 있는지 체크한다.
+4. [GroupChecker](./Code/GroupChecker.cs)로 해당 카트 상품을 위한 카트 그룹 객체가 이미 있는지 체크한다.
 5. 있으면 해당 카트 그룹에 카트 상품을 추가한다. 
 6. 없으면 새로운 카트 그룹 객체를 만들고, 카트 상품을 추가한다.
 
-GroupKeyGetter      
+[GroupKeyGetter](./Code/GroupKeyGetter.cs)     
 카트 상품의 카트 그룹 Key(식별자) 값을 반환한다. 
 KEY값 생성 로직 = 같이 주문할 수 있는 상품의 기준(조건)이 된다.
 
-GroupChecker        
+[GroupChecker](./Code/GroupChecker.cs)        
 GroupKeyGetter를 사용해 이미 있는(만들어진) 카트 그룹과 카트 상품의 그룹이 같은지 체크헌다.     
 
 <br>
