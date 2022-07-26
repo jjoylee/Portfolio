@@ -5,10 +5,11 @@
 
 위챗페이, 알리페이 결제 라이브러리 제공받아 사이트에 연동  
 
+<br>
 
-## 
+## 📌 주요 코드
 
-위챗에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기
+위챗에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기 ([QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs))
 
 ``` C#
   public string ToBase64(string codeUrl)
@@ -30,6 +31,8 @@
       return qrCodeEncoder.Encode(codeUrl, Encoding.Default);
   }
 ```
+
+[주요 코드 링크](./Code)
 
 <br>
 
