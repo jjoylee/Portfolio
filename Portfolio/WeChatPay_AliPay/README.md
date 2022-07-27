@@ -62,6 +62,8 @@
     }
 ```
 
+<br>
+
 ### 위챗 페이의 경우 qrCode를 직접 생성
 
 [QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
@@ -87,6 +89,8 @@
     }
 ```
 
+<br>
+
 ### 결제 완료 후 주문 결제 상태 변경
 
 [NotifyService.cs](./Code/Alipay/NotifyService.cs)
@@ -106,6 +110,7 @@
     return true;    
 ```
 
+<br>
 
 [주요 코드 링크](./Code)
 
