@@ -22,27 +22,9 @@
 
 ```
 
-[WebPayService.cs](./Code/Wechatpay/WebPayService.cs)
+[WebPayService.cs](./Code/Alipay/WebPayService.cs)
 
 ```C#
-
-    // PgController
-    // ALIPAY 결제방법 선택하면 여기로 redirect
-    public ActionResult AlipayWebPayPage(int orderId)
-    {
-        try
-        {
-            // alipay api로 html string 받아서 load(qrcode 표시)
-            var html = AlipayService.WebPay(Request.Url.Host, orderId);
-            return Content(html, "text/html", Encoding.UTF8);
-        }
-        catch (BizException e)
-        {
-            return View("Error", model: e.Message);
-        }
-    }
-
-    // WebPayService
     public string Request(string host, int orderId)
     {
         try
@@ -61,9 +43,53 @@
 
 ```
 
+[PgController.cs](./Code/Controller/PgController.cs)
+
+```C#
+    // ALIPAY 결제방법 선택하면 여기로 redirect
+    public ActionResult AlipayWebPayPage(int orderId)
+    {
+        try
+        {
+            // alipay api로 html string 받아서 load(qrcode 표시)
+            var html = AlipayService.WebPay(Request.Url.Host, orderId);
+            return Content(html, "text/html", Encoding.UTF8);
+        }
+        catch (BizException e)
+        {
+            return View("Error", model: e.Message);
+        }
+    }
+```
+
+### 위챗 페이의 경우 qrCode를 직접 생성
+
+[QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
+
+```C#
+    public string ToBase64(string codeUrl)
+    {
+        var image = MakeQrCodeImage(codeUrl);
+        using (var ms = new MemoryStream())
+        {
+            image.Save(ms, ImageFormat.Png);
+            byte[] _imageBytes = ms.ToArray();
+            var base64String = Convert.ToBase64String(_imageBytes);
+            return "data:image/png;base64," + base64String;
+        }
+    }
+
+    private Bitmap MakeQrCodeImage(string codeUrl)
+    {
+        var qrCodeEncoder = new QRCodeEncoder();
+        //.. qrCodeEncoder 설정 생략
+        return qrCodeEncoder.Encode(codeUrl, Encoding.Default);
+    }
+```
+
 ### 결제 완료 후 주문 결제 상태 변경
 
-[NotifyService.cs](./Code/Wechatpay/NotifyService.cs)
+[NotifyService.cs](./Code/Alipay/NotifyService.cs)
 
 ```C#
     // notifyUrl 설정을 기반으로 결제 완료 noti가 오는 곳에서 해당 서비스 호출

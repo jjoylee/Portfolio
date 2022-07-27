@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Wechatpay.Service
 {
+    // 위챗페이 시스템에서 해당 주문 상태 조회
     public class OrderQueryService : IOrderQueryService
     {
         [Autowire]

@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Wechatpay.Service
 {
+    // 위챗페이 환불을 위한 api
     public class RefundService : IRefundService
     {
         [Autowire]

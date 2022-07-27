@@ -1,7 +1,7 @@
 namespace Lib.Payment.Wechatpay.Service
 {
     // ThoughtWorks.QRCode 사용
-    // 위챗에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기
+    // 위챗페이 시스템에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기
     public class QrCodeService : IQrCodeService
     {
         public string ToBase64(string codeUrl)

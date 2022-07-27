@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Wechatpay.Service
 {
+    // 알리페이 시스템에 생성한 주문 close (결제 x)
     public class CloseService : ICloseService
     {
         [Autowire]

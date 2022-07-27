@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Wechatpay.Service
 {
+    // 위챗페이 설정을 위한 서비스
     public class WechatpayGatewayService : IWechatpayGatewayService
     {
         [Autowire]
