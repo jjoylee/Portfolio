@@ -12,43 +12,43 @@
 ## 📌 주요 코드
 
 ```C#
-        public string Request(int orderId)
+    public string Request(int orderId)
+    {
+        try
         {
-            try
-            {
-                var orderItem = OrderDao.FindById(orderId);
-                CloseBeforeRequest(orderId, orderItem.SiteId);
-                return NewRequest(orderItem);
-            }
-            catch (Exception e)
-            {
-                throw new BizException("WechatpayScanPay", e.Message);
-            }
+            var orderItem = OrderDao.FindById(orderId);
+            CloseBeforeRequest(orderId, orderItem.SiteId);
+            return NewRequest(orderItem);
         }
+        catch (Exception e)
+        {
+            throw new BizException("WechatpayScanPay", e.Message); 
+        }
+    }
 ```
 
 [QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
 
 ``` C#
   // 위챗에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기
-  public string ToBase64(string codeUrl)
-  {
-      var image = MakeQrCodeImage(codeUrl);
-      using (var ms = new MemoryStream())
-      {
-          image.Save(ms, ImageFormat.Png);
-          byte[] _imageBytes = ms.ToArray();
-          var base64String = Convert.ToBase64String(_imageBytes);
-          return "data:image/png;base64," + base64String;
-      }
-  }
+    public string ToBase64(string codeUrl)
+    {
+        var image = MakeQrCodeImage(codeUrl);
+        using (var ms = new MemoryStream())
+        {
+            image.Save(ms, ImageFormat.Png);
+            byte[] _imageBytes = ms.ToArray();
+            var base64String = Convert.ToBase64String(_imageBytes);
+            return "data:image/png;base64," + base64String;
+        }
+    }
 
-  private Bitmap MakeQrCodeImage(string codeUrl)
-  {
-      var qrCodeEncoder = new QRCodeEncoder();
-      // QRCodeEncoder 설정 생략
-      return qrCodeEncoder.Encode(codeUrl, Encoding.Default);
-  }
+    private Bitmap MakeQrCodeImage(string codeUrl)
+    {
+        var qrCodeEncoder = new QRCodeEncoder();
+        // QRCodeEncoder 설정 생략
+        return qrCodeEncoder.Encode(codeUrl, Encoding.Default);
+    }
 ```
 
 [주요 코드 링크](./Code)
