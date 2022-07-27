@@ -9,9 +9,10 @@
 
 ## 📌 주요 코드
 
-위챗에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기 ([QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs))
+[QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
 
 ``` C#
+  // 위챗에서 전달받은 codeUrl로 qrcode만들어 화면에 표시하기
   public string ToBase64(string codeUrl)
   {
       var image = MakeQrCodeImage(codeUrl);
