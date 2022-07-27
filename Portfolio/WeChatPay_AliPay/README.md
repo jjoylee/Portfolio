@@ -11,6 +11,22 @@
 
 ## 📌 주요 코드
 
+```C#
+        public string Request(int orderId)
+        {
+            try
+            {
+                var orderItem = OrderDao.FindById(orderId);
+                CloseBeforeRequest(orderId, orderItem.SiteId);
+                return NewRequest(orderItem);
+            }
+            catch (Exception e)
+            {
+                throw new BizException("WechatpayScanPay", e.Message);
+            }
+        }
+```
+
 [QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
 
 ``` C#
@@ -34,6 +50,8 @@
       return qrCodeEncoder.Encode(codeUrl, Encoding.Default);
   }
 ```
+
+``` 
 
 [주요 코드 링크](./Code)
 
