@@ -8,6 +8,7 @@
         [Autowire]
         public IAlipayGatewayService AlipayGatewayService { get; set; }
 
+        // 알리페이 시스템에 생성한 주문 close (결제 x)
         public void Request(string outTradeNo, int orderId, int siteId)
         {
             if (!CanClose(outTradeNo, orderId, siteId)) return;

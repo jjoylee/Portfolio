@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Alipay.Service
 {
+    // 모바일 브라우저에서 알리페이로 결제할 때 사용
     public class WapPayService : IWapPayService
     {
         [Autowire]
@@ -16,7 +17,9 @@
             try
             {
                 var orderItem = OrderDao.FindById(orderId);
+                // 알리페이 시스템에 기존에 생성한 주문 데이터 있으면 close
                 CloseBeforeRequest(orderId, orderItem.SiteId);
+                // 알리페이 시스템에 새로운 주문 생성
                 return NewRequest(orderItem, host);
             }
             catch (Exception e)

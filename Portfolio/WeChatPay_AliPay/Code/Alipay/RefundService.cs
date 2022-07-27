@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Alipay.Service
 {
+    // 알리페이 환불을 위한 api
     public class RefundService : IRefundService
     {
         [Autowire]
@@ -13,7 +14,7 @@
         {
             try
             {
-                var outRefundNo = "outRefundNo";
+                var outRefundNo = "outRefundNo"; // random으로 생성
                 var request = GetRequest(outRefundNo, orderId, siteId, refundPrice);
                 var response = AlipayGatewayService.Get(siteId).Execute(request);
                 if (response.Code != "10000") throw new Exception($"退款失败，请重新尝试");      

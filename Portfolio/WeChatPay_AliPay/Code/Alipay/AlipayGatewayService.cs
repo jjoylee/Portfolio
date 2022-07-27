@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Alipay.Service
 {
+    // 알리페이 설정을 위한 서비스
     public class AlipayGatewayService : IAlipayGatewayService
     {
         [Autowire]

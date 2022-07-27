@@ -1,5 +1,6 @@
 ﻿namespace Lib.Payment.Alipay.Service
 {
+    // notifyUrl 설정을 기반으로 결제 완료 noti가 오는 곳에서 해당 서비스 호출
     public class NotifyService : INotifyService
     {
         [Autowire]
