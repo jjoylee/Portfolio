@@ -19,9 +19,7 @@ PC에서 결제할 때는 화면에 표시되는 QR Code를 스캔해 결제할 
     {
         //.. 생략
         //시작점
-        if(MobileUtil.IsMobileBrowsers(Request)) {
-            return Redirect($"/Pg/AlipayWapPayPage?orderId={orderItem.Id}");
-        }
+        if(MobileUtil.IsMobileBrowsers(Request)) return Redirect($"/Pg/AlipayWapPayPage?orderId={orderItem.Id}");
         return Redirect($"/Pg/AlipayWebPayPage?orderId={orderItem.Id}");
     }
 ```
