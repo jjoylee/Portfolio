@@ -60,7 +60,7 @@ namespace Project.Areas.Page.Controllers
                 var redirectUrl = AlipayService.WapPay(Request.Url.Host, orderId);
                 return Redirect(redirectUrl);
             }
-            catch (TqoonBizException e)
+            catch (BizException e)
             {
                 return View("Error", model: e.Message);
             }
