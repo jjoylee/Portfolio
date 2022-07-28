@@ -12,7 +12,7 @@
 ## 📌 주요 코드
 
 
-### 결제 페이지 표시
+### 알리페이 결제 페이지 표시
 
 ```C#
 
@@ -46,7 +46,7 @@
 [PgController.cs](./Code/Controller/PgController.cs)
 
 ```C#
-    // ALIPAY 결제방법 선택하면 여기로 redirect
+    // 알리페이 결제방법 선택하면 여기로 redirect
     public ActionResult AlipayWebPayPage(int orderId)
     {
         try
@@ -64,7 +64,7 @@
 
 <br>
 
-### 위챗 페이의 경우 qrCode를 직접 생성
+### 위챗페이의 경우 QrCode 직접 생성
 
 [QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
 
