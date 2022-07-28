@@ -75,8 +75,12 @@ namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Model
         private void SetData(int currentRowIndex, ISheet sheet, ICellStyle style, T item)
         {
             var row = sheet.CreateRow(currentRowIndex);
-            var cellDataList = item.GetType().GetProperties()
-                                        .OrderBy(o => o.GetCustomAttributes<TicketOrderAttribute>().Single().Order).ToList();
+
+            var cellDataList = item.GetType()
+                                    .GetProperties()
+                                    .OrderBy(o => o.GetCustomAttributes<TicketOrderAttribute>().Single().Order)
+                                    .ToList();
+                                    
             for (var i = 0; i < cellDataList.Count; i++)
             {
                 var cell = row.CreateCell(i);
