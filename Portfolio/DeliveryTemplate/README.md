@@ -30,9 +30,11 @@ DB에서 데이터 추출한뒤 이를 가공해서 excel에 넣을 데이터 �
     
 ```
 
+<br>
+
 [TicketItemConverter.cs](./Code/TicketItemConverter.cs)
 
-DB 데이터 → 엑셀에 표시할 데이터로 변환 후 TicketExcelItem에 값을 넣고 item return   
+DB 데이터 → 엑셀에 표시할 데이터로 변환 후 TicketExcelItem에 값을 넣고 item return        
 
 ``` C#
     var excelItem = new TicketExcelItem(); 
@@ -42,9 +44,11 @@ DB 데이터 → 엑셀에 표시할 데이터로 변환 후 TicketExcelItem에 
     excelItem.Company = item.Company
 ```
 
+<br>
 
 [ExcelCreator.cs](./Code/ExcelCreator.cs)       
-TicketExcelItem으로 엑셀의 각 행을 만든다. 
+
+TicketExcelItem으로 엑셀의 각 행을 만든다.         
 
 ```C#
     var row = sheet.CreateRow(currentRowIndex);
@@ -63,8 +67,11 @@ TicketExcelItem으로 엑셀의 각 행을 만든다.
     }    
 ```
 
-[TicketExcelItem.cs](./Code/TicketExcelItem.cs)     
-엑셀에 들어갈 데이터를 위한 객체(엑셀의 ROW). TicketOrder로 설정한 순서대로 값이 표시된다.
+<br>
+
+[TicketExcelItem.cs](./Code/TicketExcelItem.cs)         
+
+엑셀에 들어갈 데이터를 위한 객체(엑셀의 ROW). TicketOrder로 설정한 순서대로 값이 표시된다.     
 
 ``` C#
     // OrderId > OrderDate 순으로 엑셀에 표시됨
