@@ -71,6 +71,7 @@ PC에서 결제할 때는 화면에 표시되는 QR Code를 스캔해 결제할 
 [QrCodeService.cs](./Code/Wechatpay/QrCodeService.cs)
 
 ```C#
+    // 위챗페이 api로 전달받은 codeUrl 사용
     public string ToBase64(string codeUrl)
     {
         var image = MakeQrCodeImage(codeUrl);
