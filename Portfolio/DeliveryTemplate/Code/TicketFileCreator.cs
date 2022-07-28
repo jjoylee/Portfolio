@@ -1,4 +1,4 @@
-namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Module.USPS
+namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Module
 {
     public class TicketFileCreator : IFactoryTicketFileCreator
     {
@@ -10,7 +10,7 @@ namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Module.USPS
         {
             var excelParam = new ExcelParam<TicketExcelItem>();
             excelParam.Headers = GetHeaders();
-            excelParam.DataList = GetTicketExcelList(param.JoinerId, param.OrderIds);
+            excelParam.DataList = GetTicketExcelList(param.SiteId, param.OrderIds);
             return new ExcelCreator<TicketExcelItem>().Create(param.FileCreateTargetDirectory, excelParam);
         }
 
@@ -23,9 +23,9 @@ namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Module.USPS
         }
 
         // db에서 데이터 추출한뒤 이를 가공해서 excel에 넣을 데이터 list로 만듬
-        private List<TicketExcelItem> GetTicketExcelList(int joinerId, int[] orderIds)
+        private List<TicketExcelItem> GetTicketExcelList(int siteId, int[] orderIds)
         {
-            var ticketList = TicketDao.FindTicket(joinerId, orderIds); // db에서 데이터 추출
+            var ticketList = TicketDao.FindTicket(siteId, orderIds); // db에서 데이터 추출
             var ticketExcelList = new List<TicketExcelItem>();
             foreach (var item in ticketList)
             {

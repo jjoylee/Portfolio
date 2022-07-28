@@ -1,5 +1,6 @@
 namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Model
 {
+    // 엑셀 파일 생성
     public class ExcelCreator<T>
     {
         public string Create(string fileCreateTargetDir, ExcelParam<T> excelParam)
