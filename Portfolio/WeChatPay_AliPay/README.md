@@ -3,9 +3,9 @@
 
 ## 📌 위챗페이, 알리페이 결제 연동
 
-위챗페이, 알리페이 결제 라이브러리 제공받아 사이트에 연동  
-모바일에서 사용할 떄는 앱으로 이동해서 결제 할 수 있다.  
-웹에서 결제할 때는 화면에 표시되는 QRCode를 스캔해 결제할 수 있다.
+위챗페이, 알리페이 결제 라이브러리 제공받아 연동  
+모바일에서 사용할 떄는 앱으로 이동해서 결제 할 수 있다.(WapPay)  
+PC에서 결제할 때는 화면에 표시되는 QR Code를 스캔해 결제할 수 있다.
 
 <br>
 
@@ -15,11 +15,15 @@
 ### 알리페이 결제 페이지 표시
 
 ```C#
-
-    //시작점
-    if(MobileUtil.IsMobileBrowsers(Request)) return Redirect($"/Pg/AlipayWapPayPage?orderId={orderItem.Id}");
-    return Redirect($"/Pg/AlipayWebPayPage?orderId={orderItem.Id}");
-
+    public ActionResult OrderStart(int orderId)
+    {
+        //.. 생략
+        //시작점
+        if(MobileUtil.IsMobileBrowsers(Request)) {
+            return Redirect($"/Pg/AlipayWapPayPage?orderId={orderItem.Id}");
+        }
+        return Redirect($"/Pg/AlipayWebPayPage?orderId={orderItem.Id}");
+    }
 ```
 
 [WebPayService.cs](./Code/Alipay/WebPayService.cs)
@@ -51,7 +55,7 @@
     {
         try
         {
-            // alipay api로 html string 받아서 load(qrcode 표시)
+            // 알리페이 api로 html string 받아서 load(qrcode 표시)
             var html = AlipayService.WebPay(Request.Url.Host, orderId);
             return Content(html, "text/html", Encoding.UTF8);
         }
