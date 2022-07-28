@@ -76,11 +76,12 @@ namespace Lib.Service.Ticket.Module.FactoryTicketFileCreator.Model
         {
             var row = sheet.CreateRow(currentRowIndex);
 
+            // TicketOrderAttribute로 지정한 순서대로 item 속성들 정렬
             var cellDataList = item.GetType()
                                     .GetProperties()
                                     .OrderBy(o => o.GetCustomAttributes<TicketOrderAttribute>().Single().Order)
                                     .ToList();
-                                    
+
             for (var i = 0; i < cellDataList.Count; i++)
             {
                 var cell = row.CreateCell(i);
