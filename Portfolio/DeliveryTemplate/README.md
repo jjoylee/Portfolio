@@ -1,6 +1,6 @@
 <br>
 
-### 📌 DB 데이터 추출해서 엑셀에 보여주기
+## 📌 DB 데이터 추출해서 엑셀에 보여주기
 
 송장 출력을 위해 배송사 시스템에 주문 데이터를 엑셀 파일에 넣어 업로드해야한다.     
 즉 DB에서 데이터를 추출해서 엑셀에 넣어 해당 파일을 고객이 다운받을 수 있도록 해야한다.        
@@ -10,7 +10,7 @@
 
 <br>
 
-### 📌 주요 코드
+## 📌 주요 코드
 
 [TicketFileCreator.cs](./Code/TicketFileCreator.cs)
 
@@ -83,3 +83,9 @@ TicketExcelItem으로 엑셀의 각 행을 만든다.
 ```
 
 [주요 코드 링크](./Code)
+
+<br>
+
+## 📌 결과
+
+<img src="./Image/ticketExcel.png" width="700" height="400">
