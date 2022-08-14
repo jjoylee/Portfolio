@@ -68,7 +68,7 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총주문 금액
 
 ``` C#
   /* 
-    DepositMatchingInfoGetter로 필요한 데이터 조회 (총 주문금액, 고객 보유 포인트, 입금액)
+    DepositMatchingInfoGetter로 필요한 데이터 조회 (총주문 금액, 고객 보유 포인트, 입금액)
     DepositProcInfoGetter에서 DepositMatchingInfoGetter로 기반으로 지급 또는 차감할 포인트 계산, 입금 처리 CASE 구분(어떤 procType인지)
   */
   public DepositProcInfo Get(int id, string orderIds)
@@ -99,7 +99,7 @@ CASE4. 입금액 < 입금액 + 고객이 보유한 포인트 < 총주문 금액
   public void ConfirmDeposit(int id, string orderIds, string memo, DepositMatchingInfo submitInfo, string adminId)
   {
       DepositConfirmOrders(id, orderIds, submitInfo, adminId);
-      DepositDao.ConfirmDeposit(id, orderIds, memo, adminId);  // 입금내역 상태 변경
+      DepositDao.ConfirmDeposit(id, orderIds, memo, adminId);  // 입금 내역 상태 변경
   }
 
   private void DepositConfirmOrders(int id, string orderIds, DepositMatchingInfo submitInfo, string adminId)
