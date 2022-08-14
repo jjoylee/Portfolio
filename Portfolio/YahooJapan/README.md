@@ -26,7 +26,7 @@ app.UseYahooJapanAuthentication(
 
 CreateHanlder()에서 AuthenticationHandler 인스턴스 생성
 
-AuthenticationOptions의 기본 값들 설정
+AuthenticationOptions의 기본값들 설정
 
 <br>
 
@@ -58,7 +58,7 @@ context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginP
 
 &nbsp;&nbsp;&nbsp;&nbsp;Authorization Server의 올바른 인증 콜백인지 확인한다. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;올바른 인증 콜백이면 AuthenticateAsync  메소드를 호출해서 인증 결과를 반환한다.
+&nbsp;&nbsp;&nbsp;&nbsp;올바른 인증 콜백이면 AuthenticateAsync 메소드를 호출해서 인증 결과를 반환한다.
 
 ```csharp
 AuthenticationTicket ticket = await AuthenticateAsync();
