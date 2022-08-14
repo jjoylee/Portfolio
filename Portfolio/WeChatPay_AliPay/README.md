@@ -4,7 +4,7 @@
 ## 📌 위챗페이, 알리페이 결제 연동
 
 위챗페이, 알리페이 결제 라이브러리 제공받아 연동  
-모바일 브라우저에서는 앱으로 이동해 결제 할 수 있다.(WapPay)  
+모바일 브라우저에서는 앱으로 이동해 결제할 수 있다. (WapPay)  
 PC에서 결제할 때는 화면에 표시되는 QR Code를 스캔해 결제할 수 있다.
 
 <br>
@@ -107,7 +107,7 @@ PC에서 결제할 때는 화면에 표시되는 QR Code를 스캔해 결제할 
         return true;
     }
 
-    // 입금 처리 해도 괜찮으면 response 데이터를 db에 넣는다.
+    // 입금 처리해도 괜찮으면 response 데이터를 db에 넣는다.
     // 주문 상태를 결제 완료로 변경
     InsertPgResultItem(orderItem, fee, outTradeNo, json); 
     return true;    
